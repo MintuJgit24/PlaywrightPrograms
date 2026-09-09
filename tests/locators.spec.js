@@ -6,6 +6,8 @@ test.only("Locators", async ({ page }) => {
     await page.goto("https://selenium.qabible.in/form-submit.php")
     //locating using id put a # before the id
     await page.locator("#validationCustom01").fill("Mintu")
+    await page.locator("#validationCustom02").fill("Joseph")
+    await page.locator("#validationCustomUsername").fill("mintu.joseph")
     //to pause the test execution and open the browser for debugging, you can use the page.pause() method. This will halt the test at that point and allow you to inspect the page state, interact with elements, and perform any necessary debugging actions.
     //await page.pause() 
     await page.waitForTimeout(3000)//3sec it will wait and then got closed
