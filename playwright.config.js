@@ -17,9 +17,13 @@ export default defineConfig({
 
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  timeout: 40 * 1000, //adding 10 sec more to default timeout of 30 sec, so total timeout is 40 sec
+  expect: {
+    timeout: 60 * 1000 //assertion normal timeout 50 sec, adding 10s
+  },
   use: {
     headless: false,
-    browserName:'chromium',
+    browserName: 'chromium',
 
   },
 

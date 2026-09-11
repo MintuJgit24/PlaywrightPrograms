@@ -1,6 +1,6 @@
 import { test } from "@playwright/test"
 
-test.only("sample", async ({ page }) => {
+test("sample", async ({ page }) => {
     await page.goto("https://selenium.qabible.in/simple-form-demo.php")
     await page.locator("#single-input-field").fill("Hello Mintu")
     await page.locator("#button-one").click()
