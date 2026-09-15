@@ -1,13 +1,21 @@
-import { test } from "@playwright/test"
+import { expect, test } from "@playwright/test"
 
-test("second test", async ({ browser }) => {
-    const context = await browser.newContext()
-    const page = await context.newPage()
-    await page.goto("https://www.google.com/")
-})
-
-test("sample test", async ({ browser }) => {
-    const context = await browser.newContext()
-    const page = await context.newPage()
-    await page.goto("https://www.youtube.com/")
+test.only("Rahul shetty",async({page})=>{
+    await page.goto("https://eventhub.rahulshettyacademy.com/login")
+    await page.locator("#email").fill("student@example.com")
+    await page.locator("#password").fill("secret123")
+    await page.getByRole("button",{name:"Sign In"}).click()
+    const logOutBtn=page.locator("#logout-btn")
+    await expect(logOutBtn).toBeVisible()
+    //const myBooking=page.getByRole("button",{name:"My Bookings"})
+    //await expect(myBooking).toBeVisible()
+    //myBooking.click()
+    await page.locator("#book-now-btn").nth(0).click()
+    await page.locator("#customerName").fill("Manoj Kumar")
+    await page.locator("#customer-email").fill("manoj@gmail.com")
+    await page.locator("#phone").fill("9498786541")
+    await page.getByRole("button",{name:"Confirm Booking"}).click()
+    await page.getByRole("button",{name:"My Bookings"}).click()
+    await page.getByRole("button",{name:"View Details"}).click()
+    await page.waitForTimeout(3000)
 })
