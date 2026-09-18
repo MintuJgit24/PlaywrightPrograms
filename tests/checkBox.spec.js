@@ -4,7 +4,15 @@ test("Home", async ({ page }) => {
     await page.goto("https://selenium.qabible.in/index.php")
     await page.getByRole("link", { name: "Input Form" }).click()
     await page.getByRole("link", { name: "Checkbox Demo" }).click()
-    await page.getByLabel("Click on this check box").check()
+    const checkBox = page.getByLabel("Click on this check box")
+    await checkBox.check()
+    //inbuilt function ischecked will return boolean value
+    const result = await checkBox.isChecked()
+    console.log(result)
+    await expect(checkBox).toBeChecked()//assertion
+    await expect(result).toBeTruthy()//since it is not a locator await is not required
+    //await expect(result).toBeFalsy()//opp of truthy, here test will fail
+
     const msg1 = page.locator("#message-one")
     await expect(msg1).toBeVisible()
     const displayMsg = await msg1.textContent()

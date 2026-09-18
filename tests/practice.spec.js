@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test"
 
-test.only("Rahul shetty",async({page})=>{
+test("Rahul shetty",async({page})=>{
     await page.goto("https://eventhub.rahulshettyacademy.com/login")
     await page.locator("#email").fill("student@example.com")
     await page.locator("#password").fill("secret123")
