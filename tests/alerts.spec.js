@@ -19,7 +19,7 @@ test("JSConfirmBox", async ({ page }) => {
     await page.waitForTimeout(3000)
 })
 
-test.only("AlertBox", async ({ page }) => {
+test("AlertBox", async ({ page }) => {
     await page.goto("https://selenium.qabible.in/javascript-alert.php")
     page.on('dialog', async (dialogBox2) => {
         await page.waitForTimeout(3000)
