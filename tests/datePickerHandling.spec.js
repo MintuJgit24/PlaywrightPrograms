@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test"
 
-test.only("DatePicker", async ({ page }) => {
+test("DatePicker", async ({ page }) => {
     await page.goto("https://selenium.qabible.in/date-picker.php")
     await page.locator(".form-control.datepicker").click()
     await page.locator(".datepicker-days th.datepicker-switch").click() //for year //from parent div class to child class with child tag name
@@ -32,13 +32,13 @@ test.only("DatePicker", async ({ page }) => {
     //await page.getByText(targetYear.toString(),{exact:true}).click() //to convert 2016 number to string
     //await page.locator("span.year").filter({ hasText: targetYear.toString() }).click()
     //or
-    await page.locator("span.year", { hasText: targetYear.toString() }).click()
+    await page.locator("span.year", { hasText: targetYear.toString() }).click() //giving span helps to check exact locator
     await page.locator(".month").nth(targetMonth - 1).click()
     await page.locator(".day").filter({ hasText: targetDate.toString() }).click()
     await page.locator("#button-one").click()
 
     const inputBox = page.locator(".form-control.datepicker")
-    const inputDate = await inputBox.inputValue()
+    const inputDate = await inputBox.inputValue()//helps to get input exactly from inputbox
     const showDateValue = await page.locator("#message-one").textContent()
     console.log(showDateValue)
     console.log("input date : ", inputDate)
