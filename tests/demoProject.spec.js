@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test"
 
-test.only("DemoProject", async ({ page }) => {
+test("DemoProject", async ({ page }) => {
     await page.goto("https://www.saucedemo.com")
     const userName = page.locator("#user-name")
     await userName.fill("standard_user")
@@ -49,6 +49,9 @@ test.only("DemoProject", async ({ page }) => {
     const finishBtn = page.getByRole("button", { name: "Finish" })
     await expect(finishBtn).toBeVisible()
     await finishBtn.click()
+    const msg = await page.locator(".complete-header").textContent()
+    console.log(msg)
+    await expect(msg).toContain("Thank you for your order!")
     await expect(page).toHaveURL("https://www.saucedemo.com/checkout-complete.html")
     await page.waitForTimeout(3000)
 })
