@@ -19,3 +19,27 @@ test("Rahul shetty",async({page})=>{
     await page.getByRole("button",{name:"View Details"}).click()
     await page.waitForTimeout(3000)
 })
+
+test("JSAlert",async({page})=>{
+    await page.goto("https://selenium.qabible.in/javascript-alert.php")
+    page.on("dialog",async(dialogbox)=>{
+        await page.waitForTimeout(3000)
+        dialogbox.accept()
+    })
+    const clickBtn=page.locator("//button[@onclick='jsAlert()']") 
+    await clickBtn.click()
+    //await page.waitForTimeout(3000)
+})
+
+test("JSConfirmBox",async({page})=>{
+    await page.goto("https://selenium.qabible.in/javascript-alert.php")
+    page.on("dialog",async(confirmBox)=>{
+        await page.waitForTimeout(3000)
+        console.log(confirmBox.type())
+        console.log(confirmBox.message())
+        confirmBox.accept()
+        
+    })
+    const clickBtn=page.locator(".btn.btn-warning")
+    await clickBtn.click()
+})

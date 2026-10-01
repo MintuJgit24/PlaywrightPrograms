@@ -29,9 +29,8 @@ test("DemoProject", async ({ page }) => {
     }
     const cart = page.locator(".shopping_cart_link")
     await cart.click()
-    const cartItem = await page.locator(".inventory_item_name").first() //here cannot use textContent() as it cause strict mode violation later
-    //const cartItem = page.getByText(myProduct).first()
-    //console.log(cartItem)
+    //const cartItem = await page.locator(".inventory_item_name").first() //here cannot use textContent() as it cause strict mode violation later
+    const cartItem = await page.locator(".inventory_item_name").filter({hasText:myProduct})
     await expect(cartItem).toHaveText(myProduct)
     const checkOut = page.locator("#checkout")
     await checkOut.click()

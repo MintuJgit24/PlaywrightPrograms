@@ -1,3 +1,4 @@
+import { expect } from "@playwright/test"
 export class CheckOutPage {
     constructor(page) {
         this.checkOutFirstName = page.getByPlaceholder("First Name").first()
@@ -5,17 +6,20 @@ export class CheckOutPage {
         this.checkOutZipCode = page.locator("#postal-code")
         this.checkOutContinue = page.locator("#continue")
         this.finishBtn = page.getByRole("button", { name: "Finish" })
-        this.msg = page.locator(".complete-header").textContent()
         this.page = page
     }
-    async validateCheckout() {
-        await this.checkOutFirstName.fill("Meena")
-        await this.checkOutLastName.fill("Kumar")
-        await this.checkOutZipCode.fill("680309")
+    async navigateToCheckoutPage(fName, lName, zip) {
+        await this.checkOutFirstName.fill(fName)
+        await this.checkOutLastName.fill(lName)
+        await this.checkOutZipCode.fill(zip)
         await this.checkOutContinue.click()
-        //await expect(finishBtn).toBeVisible()
-        //await expect(msg).toContain("Thank you for your order!")
+        await expect(this.finishBtn).toBeVisible()
         await this.finishBtn.click()
-        console.log(await this.msg)
+    }
+    async validateCheckout() {
+        const msg = await this.page.locator(".complete-header").textContent()
+        console.log(msg)
+        await expect(msg).toContain("Thank you for your order!")
+        await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-complete.html")
     }
 }

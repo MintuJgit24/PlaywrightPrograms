@@ -1,24 +1,23 @@
-import { test, expect } from "@playwright/test"
-import { LoginPage } from "../Pages/LoginPage"
-import { ProductPage } from "../pages/ProductPage"
-import { CheckOutPage } from "../pages/CheckOutPage"
-
+import { test } from "@playwright/test"
+import { PageManager } from "../pages/PageManager"
 
 test.only("DemoProject", async ({ page }) => {
 
-    //loginpage object
-    const lp = new LoginPage(page)
+    const pom = new PageManager(page)
+
+    const lp = await pom.getLoginPage()
     await lp.navigateToLoginPage()
-    await lp.validateUser()
+    const username = "standard_user"
+    const password = "secret_sauce"
+    await lp.validateUser(username, password)
 
-    //productpage object
-    const pp = new ProductPage(page)
-    await pp.navigateToProductsPage()
+    const pp = await pom.getProductPage()
+    const product = "Sauce Labs Bolt T-Shirt"
+    await pp.navigateToProductsPage(product)
 
-    //checkoutpage object
-    const cp = new CheckOutPage(page)
+    const cp = await pom.getCheckOutPage()
+    await cp.navigateToCheckoutPage("Meena", "Kumar", "683090")
     await cp.validateCheckout()
 
-    await expect(page).toHaveURL("https://www.saucedemo.com/checkout-complete.html")
     await page.waitForTimeout(3000)
 })

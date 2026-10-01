@@ -13,3 +13,14 @@ test("Dropdown", async ({ page }) => {
     await expect(displayMsg).toContain("Color")
     await page.waitForTimeout(3000)
 })
+
+test("Multiselect", async ({ page }) => {
+    await page.goto("https://selenium.qabible.in/select-input.php")
+    const multiSelect = page.getByLabel("Select Color")
+    await multiSelect.selectOption("Green")
+    await page.getByRole("button", { name: "Get First Selected" }).click()
+    const msg = await page.locator("#message-two").textContent()
+    console.log(msg)
+    await expect(msg).toContain("color")
+    await page.waitForTimeout(3000)
+})
