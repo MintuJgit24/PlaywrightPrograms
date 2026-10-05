@@ -1,0 +1,26 @@
+[
+    {
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "product": "Sauce Labs Bolt T-Shirt",
+        "firstName": "Meena",
+        "lastName": "Kumar",
+        "zipCode": "683090"
+    },
+    {
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "product": "Sauce Labs Backpack",
+        "firstName": "Harish",
+        "lastName": "Jose",
+        "zipCode": "683880"
+    },
+    {
+        "username": "standard_user",
+        "password": "secret_sauce",
+        "product": "Test.allTheThings() T-Shirt (Red)",
+        "firstName": "Christy",
+        "lastName": "Louis",
+        "zipCode": "680987"
+    }
+]

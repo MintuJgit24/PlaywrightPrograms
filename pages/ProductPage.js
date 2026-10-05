@@ -15,8 +15,8 @@ export class ProductPage {
     async navigateToProductsPage(myProduct) {
         const prodCount = await this.productTitle.count()
         const productList = await this.productTitle.allTextContents()
-        const cartItem = await this.productTitle.filter({ hasText: myProduct })
         const addToCart = await this.prodDescription.getByText("Add to cart")
+        const cartItem = await this.productTitle.filter({ hasText: myProduct })
         console.log("products count:", prodCount)
         console.log("Products list: ", productList)
         for (let i = 0; i < prodCount; i++) {
