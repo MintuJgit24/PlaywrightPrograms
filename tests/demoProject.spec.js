@@ -14,6 +14,7 @@ test("DemoProject1", async ({ page }) => {
     //it can occur if network bcomes slow
     await page.waitForLoadState('networkidle')
     const productTitle = page.locator(".inventory_item_name")
+    await productTitle.first().waitFor() //wait for first product to be visible, so that we can get count of products   
     const prodCount = await productTitle.count()
     console.log("Total product count: ", prodCount)
     const productList = await productTitle.allTextContents()  //to get multiple elem text contents, it return array of texts
@@ -30,7 +31,7 @@ test("DemoProject1", async ({ page }) => {
     const cart = page.locator(".shopping_cart_link")
     await cart.click()
     //const cartItem = await page.locator(".inventory_item_name").first() //here cannot use textContent() as it cause strict mode violation later
-    const cartItem = await page.locator(".inventory_item_name").filter({hasText:myProduct})
+    const cartItem = await page.locator(".inventory_item_name").filter({ hasText: myProduct })
     await expect(cartItem).toHaveText(myProduct)
     const checkOut = page.locator("#checkout")
     await checkOut.click()
