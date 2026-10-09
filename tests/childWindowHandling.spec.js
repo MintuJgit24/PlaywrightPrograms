@@ -1,4 +1,4 @@
-//window popup
+//same as windowPopUp.spec.js file
 //here facebook is new window/child window
 //need to handle using Promise
 

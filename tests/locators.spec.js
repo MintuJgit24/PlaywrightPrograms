@@ -21,6 +21,7 @@ test("Locators", async ({ page }) => {
     await page.getByPlaceholder("State").fill("Kerala")
     //label value is visible text Zip, if there is connection with for attribute and id attribute, it will locate the input field
     await page.getByLabel("Zip").fill("682001")
+    //await page.pause() //to pause the test execution and open the browser for debugging, you can use the page.pause() method. This will halt the test at that point and allow you to inspect the page state, interact with elements, and perform any necessary debugging actions.
     await page.getByLabel("Agree to terms and conditions").check()
     //or using click()
     //await page.locator("#invalidCheck").click()
