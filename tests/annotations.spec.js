@@ -17,13 +17,13 @@ test.describe("grouping test cases", () => {
         console.log("this test is for skip");
     })
 
-    
+    /*
     //in case if some tests will get fail but we need a report
     test("fail test", async ({ page }) => {
         console.log("this test is for fail");
         test.fail();
     })
-        
+    */  
 
     //in case if some test take long time and cause timeout error
     test("slow test", async ({ page }) => {
