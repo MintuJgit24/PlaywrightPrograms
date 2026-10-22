@@ -1,6 +1,7 @@
 import { test } from '@playwright/test'
 
 test.describe("grouping test cases", () => {
+    //You can configure tests using test.describe.configure to run tests in a single file in parallel.
     test.describe.configure({ mode: 'parallel', timeout: 3000, retries: 2 })
     test("annotation", async ({ page }) => {
         console.log("test started");

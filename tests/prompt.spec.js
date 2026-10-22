@@ -1,3 +1,4 @@
+//Playwright can interact with the web page dialogs such as alert, confirm, prompt
 //JS Prompt box
 
 import { test, expect } from "@playwright/test"
