@@ -5,9 +5,9 @@ test("keyboard actions", async ({ page }) => {
     const firstNameInput = page.locator("#validationCustom01");
     await expect(firstNameInput).toBeVisible()
     //await firstNameInput.fill("Sherin");
-    //await page.keyboard.type("Sherin"); //type is old
+    //await page.keyboard.type("Sherin"); //type is old depricated
     await firstNameInput.click();
-    await firstNameInput.pressSequentially("Sherin");
+    await firstNameInput.pressSequentially("Sherin"); //here give input letters one by one then only suggestion dropdown come
     await page.keyboard.press("Control+A");
     await page.keyboard.press("Control+C");
     const lastNameInput = page.locator("#validationCustom02");
