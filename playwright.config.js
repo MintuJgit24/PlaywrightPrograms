@@ -15,7 +15,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
 
-  reporter: 'html',
+  reporter: [['html'],['allure-playwright']],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   timeout: 40 * 1000, //adding 10 sec more to default timeout of 30 sec, so total timeout is 40 sec
   expect: {
