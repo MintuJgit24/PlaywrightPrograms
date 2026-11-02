@@ -1,7 +1,7 @@
 //to manage objects in page
-import { LoginPage } from "../pages/LoginPage"
-import { ProductPage } from "../pages/ProductPage"
-import { CheckOutPage } from "../pages/CheckOutPage"
+import { LoginPage } from "../pages/LoginPage.js"
+import { ProductPage } from "../pages/ProductPage.js"
+import { CheckOutPage } from "../pages/CheckOutPage.js"
 
 export class PageManager {
     constructor(page) {

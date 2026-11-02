@@ -1,0 +1,31 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: API\deleteCall.spec.js >> To delete booking data
+- Location: tests\API\deleteCall.spec.js:3:5
+
+# Error details
+
+```
+SyntaxError: Unexpected token 'C', "Created" is not valid JSON
+```
+
+# Test source
+
+```ts
+  1 | import{test,expect} from "@playwright/test"
+  2 | 
+  3 | test("To delete booking data",async({request})=>{
+  4 |     const response= await request.delete("https://restful-booker.herokuapp.com/booking/1614",{
+  5 |         headers:{"Content-Type":"application/json","Cookie":"token=5dcc925be90e9e0"}
+  6 |     })
+> 7 |     const responseBody=await response.json();
+    |                        ^ SyntaxError: Unexpected token 'C', "Created" is not valid JSON
+  8 |     console.log(responseBody);
+  9 | })
+```

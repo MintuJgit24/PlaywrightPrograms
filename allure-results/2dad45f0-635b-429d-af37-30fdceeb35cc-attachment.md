@@ -1,0 +1,33 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: API\deleteCall.spec.js >> To delete booking data
+- Location: tests\API\deleteCall.spec.js:3:5
+
+# Error details
+
+```
+TypeError: received is not iterable
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from "@playwright/test"
+  2  | 
+  3  | test("To delete booking data", async ({ request }) => {
+  4  |     const response = await request.delete("https://restful-booker.herokuapp.com/booking/1962",
+  5  |         {
+  6  |             headers: { "Content-Type": "application/json", "Cookie": "token=3fef6194fe0fa25" }
+  7  |         });
+  8  |     //const responseBody = await response.json();
+  9  |     console.log(response);
+> 10 |     expect(response).toContain("Created");
+     |                      ^ TypeError: received is not iterable
+  11 | })
+```
