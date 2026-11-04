@@ -2,7 +2,7 @@ import { test } from "@playwright/test"
 
 //hooks important
 //test.beforeall - execute before all test cases
-//test.beforeeach - execute after each test case
+//test.beforeeach - execute before each test case
 //test.aftereach - execute after each test case
 //test.afterall - execte after all test cases
 

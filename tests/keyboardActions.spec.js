@@ -36,6 +36,6 @@ test("keyboard actions", async ({ page }) => {
     console.log(colorAfterHover);
 
     await expect(colorAfterHover).not.toEqual(colorBeforeHover);
-    await page.waitForTimeout(3000)
+    await page.waitForTimeout(3000);
 
 })

@@ -1,6 +1,6 @@
 import { test } from "@playwright/test"
 import { PageManager } from "../pages/PageManager"
-import data from "../Utils/data.json"
+import data from "../Utils/data.json" with {type:'json'}
 
 //to convert json data to string format, then convert to javascript object format
 //this is for single data in json 
