@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { customTest } from '../Utils/myFixture'
+import { customTest } from '../Utils/myFixture.js'
 
 test.skip("DemoProject1", async ({ page }) => {
     await page.goto("https://www.saucedemo.com")
